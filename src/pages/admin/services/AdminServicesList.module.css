@@ -1,0 +1,207 @@
+.container {
+    min-height: 100vh;
+    padding: 48px;
+    font-family: var(--font-inter);
+    color: var(--color-text-white);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    max-width: 1200px;
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pageTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-white);
+    letter-spacing: -0.02em;
+    font-family: var(--font-syne);
+}
+
+.pageSubtitle {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    margin: 0;
+    font-family: var(--font-inter);
+}
+
+.btnPrimary {
+    background-color: var(--color-teal);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px 0 var(--color-teal-muted);
+    font-family: var(--font-inter);
+}
+
+.btnPrimary:hover {
+    background-color: var(--color-teal-dark);
+    transform: translateY(-1px);
+}
+
+.btnIcon {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-border-light);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.cardIcon {
+    font-size: 32px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.cardActions {
+    display: flex;
+    gap: 12px;
+}
+
+.actionBtnEdit {
+    background: none;
+    border: none;
+    color: var(--color-teal);
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.actionBtnEdit:hover {
+    color: var(--color-teal-dark);
+}
+
+.actionBtnDelete {
+    background: none;
+    border: none;
+    color: #ef4444;
+    /* red */
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.actionBtnDelete:hover {
+    color: #dc2626;
+}
+
+.cardTitle {
+    font-family: var(--font-syne);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-white);
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.cardDesc {
+    font-family: var(--font-inter);
+    font-size: 14px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+    /* Pushes list down if card is taller */
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.featureList li {
+    font-family: var(--font-inter);
+    font-size: 13px;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.featureDot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-teal);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.inactiveBadge {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: var(--color-text-muted);
+}
+
+.error {
+    color: #ef4444;
+}
