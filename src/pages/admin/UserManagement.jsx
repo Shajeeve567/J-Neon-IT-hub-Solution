@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 import styles from "./adminUsers.module.css";
 
 export default function AdminUsers() {
@@ -47,6 +47,21 @@ export default function AdminUsers() {
     }
   };
 
+  const deleteUser = async (id) => {
+    if (!window.confirm("Delete this user?")) return;
+
+    try {
+      await fetch(`http://localhost:8080/admin/delete/${id}`, {
+        method: "DELETE",
+        credentials: "include"
+      });
+
+      setUsers(users.filter((u) => u.id !== id));
+    } catch (err) {
+      console.error("Delete failed", err);
+    }
+  };
+
   return (
     <div className={styles.container}>
       
@@ -84,6 +99,13 @@ export default function AdminUsers() {
                 <p className={styles.userEmail}>{user.email}</p>
                 <p className={styles.userId}>ID: {user.id}</p>
               </div>
+
+              <button
+                className={styles.deleteBtn}
+                onClick={() => deleteUser(user.id)}
+              >
+                <Trash2 size={16} />
+              </button>
 
             </div>
           ))}
