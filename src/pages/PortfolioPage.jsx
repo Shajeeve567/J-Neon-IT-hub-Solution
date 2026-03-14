@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { getPortfolioItems, getPortfolioImages } from '../services/portfolioService'
 
 const imgCheckmark = "http://localhost:3845/assets/0ccf5697b7ad90af92894ea1fb9741db5ca8be25.svg"
 
@@ -117,6 +119,54 @@ function StudioCard() {
 const cardComponents = { cyber: CyberCard, cloud: CloudCard, studio: StudioCard }
 
 export default function PortfolioPage() {
+    const [dynamicProjects, setDynamicProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const data = await getPortfolioItems();
+                if (data && data.length > 0) {
+                    const cardTypes = ['cyber', 'cloud', 'studio'];
+                    const sides = ['right', 'left'];
+                    const accents = ['var(--color-teal)', '#3b82f6', '#a855f7'];
+
+                    const mapped = await Promise.all(data.map(async (item, i) => {
+                        let imageUrl = null;
+                        try {
+                            const images = await getPortfolioImages(item.id);
+                            if (images && images.length > 0) imageUrl = images[0].imageUrl;
+                        } catch (e) {
+                            console.error(e);
+                        }
+
+                        return {
+                            id: item.id,
+                            tag: item.summary || 'Project',
+                            title: item.title,
+                            desc: item.description,
+                            techLabel: 'Technologies',
+                            tech: [],
+                            features: [],
+                            side: sides[i % 2],
+                            accentColor: accents[i % 3],
+                            cardType: cardTypes[i % 3],
+                            imageUrl: imageUrl
+                        };
+                    }));
+                    setDynamicProjects(mapped);
+                }
+            } catch (err) {
+                console.error("Failed to load public portfolio items", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProjects();
+    }, []);
+
+    const displayProjects = dynamicProjects.length > 0 ? dynamicProjects : projects;
+
     return (
         <>
             <Navbar />
@@ -135,14 +185,25 @@ export default function PortfolioPage() {
                 </section>
 
                 {/* ── Projects ── */}
-                {projects.map((project, i) => {
-                    const CardComp = cardComponents[project.cardType]
+                {displayProjects.map((project, i) => {
+                    const CardComp = cardComponents[project.cardType] || cardComponents.cyber
+
+                    const VisualContent = () => (
+                        project.imageUrl ? (
+                            <div style={{ width: '100%', height: '100%', borderRadius: '12px', overflow: 'hidden', border: `1px solid ${project.accentColor}33` }}>
+                                <img src={project.imageUrl} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            </div>
+                        ) : (
+                            <CardComp />
+                        )
+                    );
+
                     return (
-                        <section key={i} className={`pf-section pf-section--${project.side}`} style={{ '--accent': project.accentColor }}>
+                        <section key={project.id || i} className={`pf-section pf-section--${project.side}`} style={{ '--accent': project.accentColor }}>
                             <div className="pf-section__container">
                                 {project.side === 'right' ? (
                                     <>
-                                        <div className="pf-section__visual"><CardComp /></div>
+                                        <div className="pf-section__visual"><VisualContent /></div>
                                         <div className="pf-section__info">
                                             <ProjectInfo project={project} imgCheckmark={imgCheckmark} />
                                         </div>
@@ -152,7 +213,7 @@ export default function PortfolioPage() {
                                         <div className="pf-section__info">
                                             <ProjectInfo project={project} imgCheckmark={imgCheckmark} />
                                         </div>
-                                        <div className="pf-section__visual"><CardComp /></div>
+                                        <div className="pf-section__visual"><VisualContent /></div>
                                     </>
                                 )}
                             </div>

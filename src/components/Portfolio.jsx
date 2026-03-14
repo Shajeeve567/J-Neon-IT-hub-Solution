@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { getPortfolioItems } from '../services/portfolioService';
 
 const projects = [
     { label: 'Cyber Defense', desc: 'Security & Compliance', tag: 'Security & Compliance' },
@@ -7,7 +9,29 @@ const projects = [
 ]
 
 export default function Portfolio({ limit, showViewAll }) {
-    const displayed = limit ? projects.slice(0, limit) : projects
+    const [dynamicProjects, setDynamicProjects] = useState([]);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const data = await getPortfolioItems();
+                if (data && data.length > 0) {
+                    const mapped = data.map(item => ({
+                        label: item.title,
+                        desc: item.summary || 'Portfolio',
+                        tag: item.summary || 'Portfolio'
+                    }));
+                    setDynamicProjects(mapped);
+                }
+            } catch (err) {
+                console.error("Failed to fetch homepage portfolio items", err);
+            }
+        };
+        fetchProjects();
+    }, []);
+
+    const sourceData = dynamicProjects.length > 0 ? dynamicProjects : projects;
+    const displayed = limit ? sourceData.slice(0, limit) : sourceData;
 
     return (
         <section className="portfolio" id="portfolio">

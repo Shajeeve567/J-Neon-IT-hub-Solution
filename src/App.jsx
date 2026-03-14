@@ -10,6 +10,11 @@ import PortfolioPage from './pages/PortfolioPage'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetailWebPage from './pages/ServiceDetailWebDev'
 
+// --- Admin Imports ---
+import AdminLayout from './layouts/AdminLayout'
+import AdminPortfolioList from './pages/admin/AdminPortfolioList'
+import AdminPortfolioForm from './pages/admin/AdminPortfolioForm'
+
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
@@ -32,6 +37,11 @@ export default function App() {
 
         {/* Dynamic service detail route */}
         <Route path="/services/:slug" element={<ServiceDetailWebPage />} />
+
+        {/* --- Admin Routes --- */}
+        <Route path="/admin/portfolio" element={<AdminLayout><AdminPortfolioList /></AdminLayout>} />
+        <Route path="/admin/portfolio/create" element={<AdminLayout><AdminPortfolioForm /></AdminLayout>} />
+        <Route path="/admin/portfolio/edit/:id" element={<AdminLayout><AdminPortfolioForm isEdit /></AdminLayout>} />
       </Routes>
     </>
   )
