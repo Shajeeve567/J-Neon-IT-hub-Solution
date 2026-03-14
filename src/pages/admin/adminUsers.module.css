@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    color: white;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #94A3B8;
+    font-size: 0.9rem;
+}
+
+.addUserBox {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.userInput {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #020617;
+    color: white;
+}
+
+.addBtn {
+    background: #14B8A6;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.addBtn:hover {
+    background: #0d9488;
+}
+
+.userGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.userCard {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.2s;
+}
+
+.userCard:hover {
+    transform: translateY(-3px);
+}
+
+.userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #14B8A6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.userInfo {
+    flex: 1;
+}
+
+.userEmail {
+    font-size: 0.95rem;
+}
+
+.userId {
+    font-size: 0.75rem;
+    color: #94A3B8;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    color: #dc2626;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #94A3B8;
+}

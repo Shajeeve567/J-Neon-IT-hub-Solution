@@ -14,6 +14,7 @@ import ServiceDetailWebPage from './pages/ServiceDetailWebDev'
 import AdminLayout from './layouts/AdminLayout'
 import AdminPortfolioList from './pages/admin/AdminPortfolioList'
 import AdminPortfolioForm from './pages/admin/AdminPortfolioForm'
+import AdminUsers from './pages/admin/UserManagement'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/admin/portfolio" element={<AdminLayout><AdminPortfolioList /></AdminLayout>} />
         <Route path="/admin/portfolio/create" element={<AdminLayout><AdminPortfolioForm /></AdminLayout>} />
         <Route path="/admin/portfolio/edit/:id" element={<AdminLayout><AdminPortfolioForm isEdit /></AdminLayout>} />
+        <Route path="/admin/users" element={<AdminLayout><AdminUsers/></AdminLayout>} />
       </Routes>
     </>
   )

@@ -43,6 +43,13 @@ export default function AdminLayout({ children }) {
                         <MessageSquare size={20} />
                         Inquiries
                     </Link>
+                    <Link
+                        to="/admin/users"
+                        className={`${styles.navItem} ${location.pathname.startsWith('/admin/users') ? styles.active : ''}`}
+                    >
+                        <MessageSquare size={20} />
+                        Users
+                    </Link>
                 </nav>
 
                 <div className={styles.sidebarFooter}>
