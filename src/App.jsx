@@ -51,6 +51,7 @@ export default function App() {
         <Route path="/admin/services" element={<AdminLayout><AdminServicesList /></AdminLayout>} />
         <Route path="/admin/services/add" element={<AdminLayout><AdminAddService /></AdminLayout>} />
         <Route path="/admin/services/edit/:id" element={<AdminLayout><AdminEditService /></AdminLayout>} />
+
         <Route path="/admin/users" element={<AdminLayout><AdminUsers/></AdminLayout>} />
       </Routes>
     </>
