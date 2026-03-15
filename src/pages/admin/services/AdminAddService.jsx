@@ -21,7 +21,7 @@ const AdminAddService = () => {
             shortDescription,
             slug,
             icon,
-            sortOrder,
+            // sortOrder,
             isActive
         };
 
@@ -94,7 +94,7 @@ const AdminAddService = () => {
                         ></textarea>
                     </div>
 
-                    <div className={styles.formGroup}>
+                    {/* <div className={styles.formGroup}>
                         <label>Sort Order</label>
                         <input
                             type="number"
@@ -103,7 +103,7 @@ const AdminAddService = () => {
                             placeholder="e.g. 1"
                             required
                         />
-                    </div>
+                    </div> */}
 
                     <div className={styles.formGroup}>
                         <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', width: 'auto', userSelect: 'none' }}>

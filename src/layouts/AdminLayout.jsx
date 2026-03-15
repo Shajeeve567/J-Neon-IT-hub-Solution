@@ -16,8 +16,8 @@ export default function AdminLayout({ children }) {
 
                 <nav className={styles.sidebarNav}>
                     <Link
-                        to="/admin/dashboard"
-                        className={`${styles.navItem} ${location.pathname === '/admin/dashboard' ? styles.active : ''}`}
+                        to="/admin/portfolio"
+                        className={`${styles.navItem} ${location.pathname === '/admin/portfolio' ? styles.active : ''}`}
                     >
                         <LayoutDashboard size={20} />
                         Dashboard
@@ -42,6 +42,13 @@ export default function AdminLayout({ children }) {
                     >
                         <MessageSquare size={20} />
                         Inquiries
+                    </Link>
+                    <Link
+                        to="/admin/users"
+                        className={`${styles.navItem} ${location.pathname.startsWith('/admin/users') ? styles.active : ''}`}
+                    >
+                        <MessageSquare size={20} />
+                        Users
                     </Link>
                 </nav>
 

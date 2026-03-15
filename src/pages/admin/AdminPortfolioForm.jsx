@@ -203,7 +203,7 @@ export default function AdminPortfolioForm({ isEdit = false }) {
                     />
                 </div>
 
-                <div className={styles.formGroupFull}>
+                {/*<div className={styles.formGroupFull}>
                     <label htmlFor="imageUrl">Image URL</label>
                     <input
                         type="url"
@@ -225,7 +225,7 @@ export default function AdminPortfolioForm({ isEdit = false }) {
                         onChange={handleInputChange}
                         placeholder="https://example-project.com"
                     />
-                </div>
+                </div>*/}
 
                 <div className={styles.techSection}>
                     <div className={styles.techHeader}>
