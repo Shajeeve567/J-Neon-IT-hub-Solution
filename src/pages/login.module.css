@@ -1,0 +1,187 @@
+/* login.module.css */
+
+/* ============================================
+   LOGIN PAGE STYLES
+   ============================================ */
+
+.page {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* Main section */
+.loginSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-pad) var(--container-pad);
+}
+
+/* Login card */
+.loginCard {
+  max-width: 460px;
+  width: 100%;
+  background: rgba(10, 17, 36, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: clamp(40px, 6vw, 56px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s;
+  text-align: center;
+}
+
+.loginCard:hover {
+  border-color: var(--color-teal-muted);
+}
+
+/* Title */
+.loginTitle {
+  font-family: var(--font-syne);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 42px);
+  color: var(--color-text-white);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+/* Subtitle */
+.loginSubtitle {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Button base */
+.loginBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 28px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Google button specific */
+.loginBtnGoogle {
+  composes: loginBtn;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--color-border-light);
+  color: var(--color-text-white);
+}
+
+.loginBtnGoogle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(46, 191, 165, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: 0;
+}
+
+.loginBtnGoogle:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.loginBtnGoogle:hover {
+  border-color: var(--color-teal);
+  background: rgba(46, 191, 165, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(46, 191, 165, 0.15);
+}
+
+.loginBtnGoogle:active {
+  transform: translateY(0);
+}
+
+/* Button icon */
+.loginBtnIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.loginBtnGoogle:hover .loginBtnIcon {
+  transform: scale(1.1);
+}
+
+/* Note text */
+.loginNote {
+  font-family: var(--font-inter);
+  font-size: 13px;
+  color: var(--color-text-dim);
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+
+.loginNote a {
+  color: var(--color-teal);
+  transition: color 0.2s;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginNote a:hover {
+  color: var(--color-teal-dark);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loginSection {
+    padding: 40px 20px;
+  }
+
+  .loginCard {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginTitle {
+    font-size: 28px;
+  }
+
+  .loginSubtitle {
+    font-size: 14px;
+  }
+
+  .loginBtnGoogle {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .loginBtnIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .loginNote {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,265 @@
+.container {
+    width: 100%;
+    color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #94A3B8;
+    margin: 0;
+}
+
+.addBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #14B8A6;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addBtn:hover {
+    background-color: #0d9488;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #111827;
+    /* Darker card background */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1f2937;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.imageContainer {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    background-color: #1f2937;
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.categoryBadge {
+    position: absolute;
+    bottom: -12px;
+    left: 20px;
+    background-color: #14B8A6;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.cardContent {
+    padding: 24px 20px 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: #ffffff;
+}
+
+.clientName {
+    font-size: 0.875rem;
+    color: #94A3B8;
+    margin: 0 0 12px 0;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.techTag {
+    background-color: rgba(30, 41, 59, 0.8);
+    color: #cbd5e1;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    border: 1px solid #334155;
+    white-space: nowrap;
+}
+
+.cardActions {
+    display: flex;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid #1f2937;
+    background-color: rgba(17, 24, 39, 0.5);
+}
+
+.actionBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #1f2937;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.actionBtn:hover {
+    background-color: #334155;
+}
+
+.deleteBtn {
+    flex: 0 0 40px;
+    color: #ef4444;
+}
+
+.deleteBtn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.viewBtn {
+    flex: 0 0 40px;
+    color: #14B8A6;
+}
+
+.loading,
+.emptyState {
+    text-align: center;
+    padding: 48px;
+    color: #94A3B8;
+    font-size: 1.1rem;
+    background-color: #111827;
+    border-radius: 12px;
+    border: 1px dashed #334155;
+}
+
+/* Custom Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #111827;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.modalContent h3 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.modalContent p {
+    color: #94A3B8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cancelBtn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.confirmDeleteBtn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #ef4444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.confirmDeleteBtn:hover {
+    background: #dc2626;
+}

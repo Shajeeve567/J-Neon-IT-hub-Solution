@@ -36,7 +36,7 @@ export default function HomePage() {
                 <Stats />
                 <Services limit={2} showViewAll={true} />
                 <Portfolio limit={2} showViewAll={true} />
-                <Contact />
+                {/* <Contact /> */}
             </main>
             <Footer />
         </>

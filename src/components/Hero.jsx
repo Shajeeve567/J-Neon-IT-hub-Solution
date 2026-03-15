@@ -1,108 +1,50 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import useServices from '../hooks/useServices'
-
-function ServiceRow({ service }) {
-    const [open, setOpen] = useState(false)
-
+export default function Hero() {
     return (
-        <div className={`service-row ${open ? 'active' : ''}`}>
-            <div className="service-row__header" onClick={() => setOpen(o => !o)}>
-                <span className="service-row__name">{service.title}</span>
-                <div className="service-row__meta">
-                    <span className="service-row__tag">{service.slug}</span>
-                    <div className="service-row__icon">
-                        {open ? (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                                <path d="M18 12H6" />
-                            </svg>
-                        ) : (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                                <path d="M12 6v12M6 12h12" />
-                            </svg>
-                        )}
-                    </div>
-                </div>
-            </div>
+        <section className="hero" id="hero">
+            <div className="hero__bg-glow" aria-hidden="true" />
 
-            <div className="service-row__panel">
-                <div className="service-row__panel-inner">
-                    <div className="service-row__panel-card">
-                        <div className="service-panel-dots">
-                            <span /><span /><span />
-                        </div>
-                        <p className="service-panel-desc">{service.shortDescription}</p>
-                        <Link to={`/services/${service.slug}`} className="service-panel-link">View Details →</Link>
-                    </div>
-                    {/* Hiding stat conditionally if backend does not provide it */}
-                    {service.stat && (
-                        <div className="service-panel-stat">
-                            <span className="service-panel-stat__value">{service.stat.value}</span>
-                            <span className="service-panel-stat__label">{service.stat.label}</span>
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
-    )
-}
+            {/* Decorative globe — SVG placeholder for the faint head/globe image */}
+            <svg
+                className="hero__globe"
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                <circle cx="200" cy="200" r="180" stroke="#2ebfa5" strokeWidth="1.5" />
+                <circle cx="200" cy="200" r="130" stroke="#2ebfa5" strokeWidth="1" />
+                <circle cx="200" cy="200" r="80" stroke="#2ebfa5" strokeWidth="0.8" />
+                <ellipse cx="200" cy="200" rx="180" ry="70" stroke="#2ebfa5" strokeWidth="1" />
+                <ellipse cx="200" cy="200" rx="180" ry="120" stroke="#2ebfa5" strokeWidth="0.7" />
+                <line x1="20" y1="200" x2="380" y2="200" stroke="#2ebfa5" strokeWidth="1" />
+                <line x1="200" y1="20" x2="200" y2="380" stroke="#2ebfa5" strokeWidth="1" />
+                <line x1="60" y1="60" x2="340" y2="340" stroke="#2ebfa5" strokeWidth="0.5" />
+                <line x1="340" y1="60" x2="60" y2="340" stroke="#2ebfa5" strokeWidth="0.5" />
+                {/* J letter */}
+                <text x="155" y="230" fontFamily="Paytone One, sans-serif" fontSize="100" fill="#2ebfa5" opacity="0.6">J</text>
+            </svg>
 
-export default function Services({ limit, showViewAll }) {
-    const { services, loading, error, refetch } = useServices()
-
-    // Ensure displayed is always an array
-    const serviceArray = Array.isArray(services) ? services
-        : Array.isArray(services?.data) ? services.data
-        : []
-
-    const displayed = limit ? serviceArray.slice(0, limit) : serviceArray
-
-    return (
-        <section className="services" id="services">
-            <div className="services__container">
-                <div className="services__header fade-in">
-                    <h2 className="services__title">
-                        OUR <span>SERVICES</span>
-                    </h2>
-                    <p className="services__subtitle">
-                        We offer comprehensive services that help businesses scale, secure, and optimize their digital infrastructure.
-                    </p>
+            <div className="hero__content fade-in">
+                <div className="hero__headline">
+                    <div>YOUR</div>
+                    <div>COMPLETE</div>
+                    <div className="gradient-text">IT HUB</div>
+                    <div>SOLUTION.</div>
                 </div>
 
-                {loading ? (
-                    <div className="fade-in services-loading">
-                        <div className="services-spinner"></div>
-                        <p>Loading services...</p>
-                    </div>
-                ) : error ? (
-                    <div className="fade-in services-error">
-                        <p>{error}</p>
-                        <button onClick={refetch} className="retry-button">
-                            Try Again
-                        </button>
-                    </div>
-                ) : displayed.length === 0 ? (
-                    <div className="fade-in" style={{ padding: '40px 0', textAlign: 'center' }}>
-                        <p>No services found</p>
-                    </div>
-                ) : (
-                    <div className="fade-in" style={{ transitionDelay: '0.15s' }}>
-                        {displayed.map((s) => (
-                            <ServiceRow key={s.id} service={s} />
-                        ))}
-                    </div>
-                )}
+                <div className="hero__tagline">
+                    <p>Enterprise-grade infrastructure. Forensic security protocols.</p>
+                    <p>Future-proof your digital landscape.</p>
+                </div>
 
-                {showViewAll && !loading && !error && displayed.length > 0 && (
-                    <div className="view-all-row fade-in">
-                        <Link to="/services" className="view-all-btn">
-                            VIEW ALL SERVICES
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </Link>
-                    </div>
-                )}
+                <div className="hero__cta-row">
+                    <a href="#services" className="btn-outline">
+                        Check Services
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     )

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import reactLogo from '../assets/image.png'
+import { fetchAllServices, fetchServiceById } from '../services/services.api'
 
 const imgEllipse = reactLogo
 const defaultIcon = reactLogo
@@ -13,35 +14,19 @@ export default function ServicesPage() {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/services/all')
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to fetch services')
-                return res.json()
-            })
-            .then(data => {
-                if (data.length === 0) {
-                    setServices([{
-                        id: 1,
-                        title: 'Default Service',
-                        shortDescription: 'This is a default service',
-                        icon: defaultIcon
-                    }])
-                } else {
-                    setServices(data)
-                }
-                setLoading(false)
-            })
-            .catch(err => {
-                console.error('Fetch error:', err)
-                setError(err.message)
-                setServices([{
-                    id: 1,
-                    title: 'Computer Service',
-                    shortDescription: 'Ensure your devices run smoothly and efficiently',
-                    icon: defaultIcon
-                }])
-                setLoading(false)
-            })
+        const fetchData = async () => {
+            try {
+                const res = await fetchAllServices();
+                setServices(res);
+                setLoading(false);
+            } catch (error) {
+                setError(error);
+                console.log(error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, [])
 
     return (
@@ -74,15 +59,15 @@ export default function ServicesPage() {
                         {/* {error && <div className="error-state" style={{ color: 'red' }}>Error: {error}</div>} */}
                         {!loading && services.map(service => (
                             <div key={service.id} className="svc-card">
-                                <div 
-                                    className="svc-card__ellipse" 
+                                <div
+                                    className="svc-card__ellipse"
                                     style={{ backgroundImage: `url(${imgEllipse})` }}
                                     aria-hidden="true"
                                 />
                                 <div className="svc-card__icon-wrap">
-                                    <img 
-                                        src={service.icon || defaultIcon} 
-                                        alt={service.title} 
+                                    <img
+                                        src={service.icon || defaultIcon}
+                                        alt={service.title}
                                         className="svc-card__icon"
                                         onError={e => { e.target.src = defaultIcon }}
                                     />
@@ -90,8 +75,8 @@ export default function ServicesPage() {
                                 <div className="svc-card__body">
                                     <h3 className="svc-card__title">{service.title}</h3>
                                     <p className="svc-card__desc">{service.shortDescription}</p>
-                                    <Link 
-                                        to={`/services/${service.id}`} 
+                                    <Link
+                                        to={`/services/${service.id}`}
                                         className="svc-card__cta"
                                         onClick={() => localStorage.setItem('selectedService', JSON.stringify(service))}
                                     >
