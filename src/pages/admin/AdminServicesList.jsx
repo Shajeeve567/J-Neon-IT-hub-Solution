@@ -19,6 +19,7 @@ const AdminServicesList = () => {
             const data = await fetchAllServices();
             // Ensure unique items or parse data properly if needed
             setServices(data || []);
+            console.log('Fetched services:', data); // Debug log
         } catch (err) {
             console.error('Failed to load services:', err);
             setError('Failed to load services.');
@@ -115,7 +116,9 @@ const AdminServicesList = () => {
                                 </ul>
                             ) : null}
 
-                            {!service.isActive && (
+                            {service.active ? (
+                                <div className={styles.activeBadge}>Active</div>
+                            ) : (
                                 <div className={styles.inactiveBadge}>Inactive</div>
                             )}
                         </div>
