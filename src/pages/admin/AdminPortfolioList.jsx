@@ -124,15 +124,13 @@ export default function AdminPortfolioList() {
                                 >
                                     <Trash2 size={16} />
                                 </button>
-                                <a
-                                    href={project.projectUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
                                     className={`${styles.actionBtn} ${styles.viewBtn}`}
-                                    title="View Live"
+                                    onClick={() => window.open('/portfolio', 'portfolioPreviewTab')}
+                                    title="View Portfolio"
                                 >
                                     <ExternalLink size={16} />
-                                </a>
+                                </button>
                             </div>
                         </div>
                     ))}
