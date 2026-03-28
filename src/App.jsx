@@ -22,6 +22,7 @@ import AdminServicesList from './pages/admin/services/AdminServicesList'
 
 import AdminServicePlansList from "./pages/admin/services/AdminServicePlansList";
 import AdminServicePlansForm from "./pages/admin/services/AdminServicePlansForm";
+import AdminMedia from "./pages/admin/AdminMedia";
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -59,6 +60,8 @@ export default function App() {
         <Route path="/admin/services/:serviceId/plans" element={<AdminLayout><AdminServicePlansList /></AdminLayout>} />
         <Route path="/admin/services/:serviceId/plans/add" element={<AdminLayout><AdminServicePlansForm /></AdminLayout>} />
         <Route path="/admin/services/:serviceId/plans/edit/:planId" element={<AdminLayout><AdminServicePlansForm /></AdminLayout>} />
+        
+        <Route path="/admin/media" element={<AdminLayout><AdminMedia /></AdminLayout>} />
 
         <Route path="/admin/users" element={<AdminLayout><AdminUsers/></AdminLayout>} />
       </Routes>
