@@ -20,6 +20,9 @@ import AdminEditService from './pages/admin/services/AdminEditService'
 import AdminAddService from './pages/admin/services/AdminAddService'
 import AdminServicesList from './pages/admin/services/AdminServicesList'
 
+import AdminServicePlansList from "./pages/admin/services/AdminServicePlansList";
+import AdminServicePlansForm from "./pages/admin/services/AdminServicePlansForm";
+
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
@@ -51,6 +54,11 @@ export default function App() {
         <Route path="/admin/services" element={<AdminLayout><AdminServicesList /></AdminLayout>} />
         <Route path="/admin/services/add" element={<AdminLayout><AdminAddService /></AdminLayout>} />
         <Route path="/admin/services/edit/:id" element={<AdminLayout><AdminEditService /></AdminLayout>} />
+
+        {/* Service Plans Routes - Wrapped with AdminLayout */}
+        <Route path="/admin/services/:serviceId/plans" element={<AdminLayout><AdminServicePlansList /></AdminLayout>} />
+        <Route path="/admin/services/:serviceId/plans/add" element={<AdminLayout><AdminServicePlansForm /></AdminLayout>} />
+        <Route path="/admin/services/:serviceId/plans/edit/:planId" element={<AdminLayout><AdminServicePlansForm /></AdminLayout>} />
 
         <Route path="/admin/users" element={<AdminLayout><AdminUsers/></AdminLayout>} />
       </Routes>
