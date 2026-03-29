@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings } from 'lucide-react';
+import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings, Image } from 'lucide-react';
 import styles from './adminLayout.module.css';
 
 export default function AdminLayout({ children }) {
@@ -28,6 +28,13 @@ export default function AdminLayout({ children }) {
                     >
                         <Settings size={20} />
                         Services
+                    </Link>
+                    <Link
+                        to="/admin/media"
+                        className={`${styles.navItem} ${location.pathname.startsWith('/admin/media') ? styles.active : ''}`}
+                    >
+                        <Image size={20} />
+                        Media
                     </Link>
                     <Link
                         to="/admin/portfolio"
