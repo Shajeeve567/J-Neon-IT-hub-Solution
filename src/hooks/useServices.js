@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchAllServices } from '../services/api';
+import { fetchAllServices } from '../services/services.api';
 
 const useServices = () => {
     const [services, setServices] = useState([]);

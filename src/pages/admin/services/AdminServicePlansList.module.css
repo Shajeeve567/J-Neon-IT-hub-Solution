@@ -1,0 +1,240 @@
+.container {
+    min-height: 100vh;
+    padding: 48px;
+    font-family: var(--font-inter);
+    color: var(--color-text-white);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    max-width: 1200px;
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: var(--color-teal);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.backButton:hover {
+    text-decoration: underline;
+}
+
+.pageTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-white);
+    letter-spacing: -0.02em;
+    font-family: var(--font-syne);
+}
+
+.pageSubtitle {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.btnPrimary {
+    background-color: var(--color-teal);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.btnPrimary:hover {
+    background-color: var(--color-teal-dark);
+}
+
+.btnIcon {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.plansGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+}
+
+.planCard {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.planCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-border-light);
+}
+
+.planCard.featured {
+    border: 2px solid var(--color-teal);
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(20, 184, 166, 0.05) 100%);
+}
+
+.featuredBadge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--color-teal);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.planHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.planName {
+    font-family: var(--font-syne);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-white);
+}
+
+.planActions {
+    display: flex;
+    gap: 12px;
+}
+
+.actionBtnEdit {
+    background: none;
+    border: none;
+    color: var(--color-teal);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.actionBtnDelete {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.price {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-teal);
+    margin: 16px 0;
+}
+
+.billingPeriod {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text-muted);
+}
+
+.description {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.features {
+    margin: 20px 0;
+}
+
+.features h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text-white);
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features li {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkmark {
+    color: var(--color-teal);
+    font-weight: bold;
+}
+
+.planFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.priceType {
+    font-size: 12px;
+    color: var(--color-text-dim);
+}
+
+.inactiveBadge {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.loading, .error, .emptyState {
+    text-align: center;
+    padding: 60px;
+    font-size: 16px;
+    color: var(--color-text-muted);
+}
+
+.error {
+    color: #ef4444;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
