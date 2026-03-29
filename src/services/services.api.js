@@ -81,3 +81,94 @@ export const deleteService = async (id) => {
   }
 };
 
+<<<<<<< HEAD
+=======
+
+export const createServicePlan = async (planData) => {
+  try {
+    const response = await api.post('/api/service/plans', planData);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating service plan:', error);
+    if (error.response) {
+      console.error('Error response data:', error.response.data);
+      console.error('Error response status:', error.response.status);
+    }
+    throw error;
+  }
+};
+
+/**
+ * Update an existing service plan
+ * Expected planData includes id field
+ */
+// =============================================
+// Service Plans API calls
+// =============================================
+
+/**
+ * Fetch all plans for a specific service
+ */
+export const fetchServicePlans = async (serviceId) => {
+  try {
+    const response = await api.get(`/api/service/plans/serviceId/${serviceId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching service plans:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetch a single plan by its ID
+ */
+export const fetchPlanById = async (planId) => {
+  try {
+    const response = await api.get(`/api/service/plans/${planId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching plan with ID ${planId}:`, error);
+    throw error;
+  }
+};
+
+/**
+ * Fetch all plans (across all services)
+ */
+export const fetchAllPlans = async () => {
+  try {
+    const response = await api.get('/api/service/plans/all');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching all plans:', error);
+    throw error;
+  }
+};
+export const updateServicePlan = async (planData) => {
+  try {
+    const response = await api.put('/api/service/plans/id', planData);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating service plan:', error);
+    if (error.response) {
+      console.error('Error response data:', error.response.data);
+      console.error('Error response status:', error.response.status);
+    }
+    throw error;
+  }
+};
+
+export const deleteServicePlan = async (planId) => {
+  try {
+    const response = await api.delete(`/api/service/plans/${planId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting service plan:', error);
+    if (error.response) {
+      console.error('Error response data:', error.response.data);
+      console.error('Error response status:', error.response.status);
+    }
+    throw error;
+  }
+};
+>>>>>>> origin/dev

@@ -1,0 +1,217 @@
+.container {
+    min-height: 100vh;
+    padding: 48px;
+    font-family: var(--font-inter);
+    color: var(--color-text-white);
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pageTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-white);
+    letter-spacing: -0.02em;
+    font-family: var(--font-syne);
+}
+
+.pageSubtitle {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    margin: 0;
+    font-family: var(--font-inter);
+}
+
+.btnPrimary {
+    background-color: var(--color-teal);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px 0 var(--color-teal-muted);
+    font-family: var(--font-inter);
+}
+
+.btnPrimary:hover {
+    background-color: var(--color-teal-dark);
+    transform: translateY(-1px);
+}
+
+.btnIcon {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 36px;
+    max-width: 900px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-white);
+    margin: 0 0 32px 0;
+    font-family: var(--font-syne);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formGroup label,
+.featuresHeader label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-family: var(--font-inter);
+}
+
+input[type="text"],
+textarea {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--color-text-white);
+    font-size: 15px;
+    font-family: var(--font-inter);
+    transition: all 0.2s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 1px var(--color-teal-muted);
+    background-color: var(--color-bg-card);
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: var(--color-text-dim);
+}
+
+.featuresSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.featuresHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addFeatureBtn {
+    background: none;
+    border: none;
+    color: var(--color-teal);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s;
+    font-family: var(--font-inter);
+}
+
+.addFeatureBtn:hover {
+    color: var(--color-teal-dark);
+}
+
+.featuresList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.featureItem input {
+    flex: 1;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+    opacity: 0.8;
+}
+
+.deleteBtn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    opacity: 1;
+}
+
+.formActions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.btnSecondary {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-inter);
+}
+
+.btnSecondary:hover {
+    background-color: var(--color-border);
+    color: var(--color-text-white);
+}

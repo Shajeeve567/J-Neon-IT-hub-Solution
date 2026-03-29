@@ -1,5 +1,9 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings } from 'lucide-react';
+=======
+import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings, Image } from 'lucide-react';
+>>>>>>> origin/dev
 import styles from './adminLayout.module.css';
 
 export default function AdminLayout({ children }) {
@@ -16,8 +20,13 @@ export default function AdminLayout({ children }) {
 
                 <nav className={styles.sidebarNav}>
                     <Link
+<<<<<<< HEAD
                         to="/admin/dashboard"
                         className={`${styles.navItem} ${location.pathname.startsWith('/admin/dashboard') ? styles.active : ''}`}
+=======
+                        to="/admin/portfolio"
+                        className={`${styles.navItem} ${location.pathname === '/admin/portfolio' ? styles.active : ''}`}
+>>>>>>> origin/dev
                     >
                         <LayoutDashboard size={20} />
                         Dashboard
@@ -30,6 +39,16 @@ export default function AdminLayout({ children }) {
                         Services
                     </Link>
                     <Link
+<<<<<<< HEAD
+=======
+                        to="/admin/media"
+                        className={`${styles.navItem} ${location.pathname.startsWith('/admin/media') ? styles.active : ''}`}
+                    >
+                        <Image size={20} />
+                        Media
+                    </Link>
+                    <Link
+>>>>>>> origin/dev
                         to="/admin/portfolio"
                         className={`${styles.navItem} ${location.pathname.startsWith('/admin/portfolio') ? styles.active : ''}`}
                     >
