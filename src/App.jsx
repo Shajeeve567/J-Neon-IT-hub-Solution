@@ -22,6 +22,7 @@ import AdminServicesList from './pages/admin/services/AdminServicesList'
 import AdminInquiries from './pages/admin/AdminInquiries'
 import AdminEditService from './pages/admin/services/AdminEditService'
 import AdminMedia from './pages/admin/AdminMedia'
+import AdminChatbotDocs from './pages/admin/AdminChatbotDocs'
 
 import AdminServicePlansList from "./pages/admin/services/AdminServicePlansList";
 import AdminServicePlansForm from "./pages/admin/services/AdminServicePlansForm";
@@ -60,8 +61,8 @@ export default function App() {
 
         <Route path="/admin/inquiries" element={<AdminLayout><AdminInquiries /></AdminLayout>} />
         <Route path="/admin/users" element={<AdminLayout><AdminUsers /></AdminLayout>} />
-        <Route path="/admin/media" element={<AdminLayout><AdminMedia /></AdminLayout>} />+
-
+        <Route path="/admin/media" element={<AdminLayout><AdminMedia /></AdminLayout>} />
+        <Route path="/admin/chatbot-docs" element={<AdminLayout><AdminChatbotDocs /></AdminLayout>} />
         <Route path="/admin/services/:serviceId/plans/add" element={<AdminLayout><AdminServicePlansForm /></AdminLayout>} />
         <Route
           path="/admin/services/:serviceId/plans/edit/:planId"

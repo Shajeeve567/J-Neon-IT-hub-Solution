@@ -1,0 +1,176 @@
+.container {
+    width: 100%;
+    color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #ffffff;
+}
+
+.uploadSection {
+    background-color: #0B1121;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+    margin-bottom: 32px;
+}
+
+.uploadForm {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+.fileInput {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    padding: 9px 12px; 
+    cursor: pointer;
+}
+
+.fileInput:focus {
+    outline: none;
+    border-color: #14B8A6;
+}
+
+.fileInput::-webkit-file-upload-button {
+    background: #334155;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.uploadBtn {
+    background-color: #14B8A6;
+    color: #ffffff;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 46px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadBtn:hover:not(:disabled) {
+    background-color: #0d9488;
+}
+
+.uploadBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.docCard {
+    background-color: #111827;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1f2937;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.docCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.iconWrapper {
+    height: 140px;
+    background-color: #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    padding: 20px;
+}
+
+.fileName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.uploadTime {
+    font-size: 0.875rem;
+    color: #94A3B8;
+    margin: 0;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #94A3B8;
+    font-size: 1.1rem;
+}
+
+.emptyState {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px;
+    color: #94A3B8;
+    font-size: 1.1rem;
+    background-color: #111827;
+    border-radius: 12px;
+    border: 1px dashed #334155;
+}
+
+.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}

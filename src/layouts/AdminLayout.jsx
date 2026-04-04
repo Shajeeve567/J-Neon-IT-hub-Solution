@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings, Image } from 'lucide-react';
+import { LayoutDashboard, Eye, MessageSquare, LogOut, Settings, Image, FileText } from 'lucide-react';
 import styles from './adminLayout.module.css';
 
 export default function AdminLayout({ children }) {
@@ -49,6 +49,13 @@ export default function AdminLayout({ children }) {
                     >
                         <MessageSquare size={20} />
                         Inquiries
+                    </Link>
+                    <Link
+                        to="/admin/chatbot-docs"
+                        className={`${styles.navItem} ${location.pathname.startsWith('/admin/chatbot-docs') ? styles.active : ''}`}
+                    >
+                        <FileText size={20} />
+                        Chatbot Docs
                     </Link>
                     <Link
                         to="/admin/users"
