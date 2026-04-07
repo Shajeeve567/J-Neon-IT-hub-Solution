@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { chatbotService } from '../../services/chatbotService';
-import { Upload, FileText } from 'lucide-react';
+import { Upload, FileText, Trash2 } from 'lucide-react';
 import styles from './adminChatbotDocs.module.css';
 
 export default function AdminChatbotDocs() {
@@ -65,6 +65,18 @@ export default function AdminChatbotDocs() {
         }
     };
 
+    const handleDelete = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this document? It will be removed from the chatbot completely.')) return;
+        
+        try {
+            await chatbotService.deleteDocument(id);
+            // Refresh list
+            fetchDocuments();
+        } catch (err) {
+            setError(err.response?.data?.error || err.message || 'Failed to delete document');
+        }
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -112,6 +124,13 @@ export default function AdminChatbotDocs() {
                                     Uploaded: {new Date(doc.upload_timestamp).toLocaleString()}
                                 </p>
                             </div>
+                            <button 
+                                className={styles.deleteBtn} 
+                                onClick={() => handleDelete(doc.id)}
+                                title="Delete Document"
+                            >
+                                <Trash2 size={16} />
+                            </button>
                         </div>
                     ))}
                     {documents.length === 0 && (

@@ -22,5 +22,9 @@ export const chatbotService = {
       },
     });
     return response.data;
+  },
+  deleteDocument: async (file_id) => {
+    const response = await chatbotApi.post('/delete-doc', { file_id });
+    return response.data;
   }
 };
