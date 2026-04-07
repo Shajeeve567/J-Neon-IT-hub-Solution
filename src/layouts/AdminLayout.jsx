@@ -15,13 +15,13 @@ export default function AdminLayout({ children }) {
                 </div>
 
                 <nav className={styles.sidebarNav}>
-                    {/* <Link
-                        to="/admin/portfolio"
-                        className={`${styles.navItem} ${location.pathname === '/admin/portfolio' ? styles.active : ''}`}
+                    <Link
+                        to="/admin/analytics"
+                        className={`${styles.navItem} ${location.pathname === '/admin/analytics' ? styles.active : ''}`}
                     >
                         <LayoutDashboard size={20} />
                         Dashboard
-                    </Link> */}
+                    </Link>
                     <Link
                         to="/admin/services"
                         className={`${styles.navItem} ${location.pathname.startsWith('/admin/services') ? styles.active : ''}`}

@@ -27,6 +27,9 @@ import AdminChatbotDocs from './pages/admin/AdminChatbotDocs'
 import AdminServicePlansList from "./pages/admin/services/AdminServicePlansList";
 import AdminServicePlansForm from "./pages/admin/services/AdminServicePlansForm";
 
+// Analytics
+import AnalyticsDashboard from './pages/admin/AnalyticsDashboard';
+
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
@@ -69,6 +72,7 @@ export default function App() {
           element={<AdminLayout><AdminServicePlansForm /></AdminLayout>}
         />
         <Route path="/admin/services/:serviceId/plans" element={<AdminLayout><AdminServicePlansList /></AdminLayout>} />
+        <Route path="/admin/analytics" element={<AdminLayout><AnalyticsDashboard /></AdminLayout>} />
       </Routes>
     </>
   )
