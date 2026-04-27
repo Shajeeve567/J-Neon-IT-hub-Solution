@@ -1,46 +1,31 @@
 import { useEffect } from 'react'
 import Navbar from '../components/Navbar'
+import useScrollFadeIn from '../hooks/useScrollFadeIn'
 import Hero from '../components/Hero'
 import Stats from '../components/Stats'
 import Services from '../components/Services'
+import StrategicFlow from '../components/StrategicFlow'
 import Portfolio from '../components/Portfolio'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import Chatbot from '../components/Chatbot'
 
-function useScrollFadeIn() {
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(el => {
-                    if (el.isIntersecting) {
-                        el.target.classList.add('visible')
-                    }
-                })
-            },
-            { threshold: 0.12 }
-        )
-        const targets = document.querySelectorAll('.fade-in')
-        targets.forEach(t => observer.observe(t))
-        return () => targets.forEach(t => observer.unobserve(t))
-    }, [])
-}
-
 export default function HomePage() {
     useScrollFadeIn()
 
     return (
-        <>
+        <div style={{ position: 'relative', overflowX: 'hidden' }}>
             <Navbar />
             <main>
                 <Hero />
                 <Stats />
                 <Services limit={2} showViewAll={true} />
+                <StrategicFlow />
                 <Portfolio limit={2} showViewAll={true} />
-                {/* <Contact /> */}
+                <Contact />
             </main>
             <Footer />
             <Chatbot />
-        </>
+        </div>
     )
 }
