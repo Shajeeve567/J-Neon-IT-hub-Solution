@@ -26,7 +26,7 @@ const sortedInquiries = [...inquiries].sort((a, b) => {
 
   const fetchInquiries = async () => {
     try {
-      const res = await fetch("http://localhost:8080/contact/get-all", {
+      const res = await fetch("https://j-neon-it-hub-backend-54hj.onrender.com/contact/get-all", {
         credentials: "include"
       });
 
@@ -50,7 +50,7 @@ const sortedInquiries = [...inquiries].sort((a, b) => {
 
   const updateInquiryStatus = async (id, status) => {
     try {
-      const res = await fetch("http://localhost:8080/contact/tags", {
+      const res = await fetch("https://j-neon-it-hub-backend-54hj.onrender.com/contact/tags", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -74,7 +74,7 @@ const sortedInquiries = [...inquiries].sort((a, b) => {
 
 const handleDelete = async (id) => {
   try {
-    const res = await fetch(`http://localhost:8080/contact/delete/${id}`, {
+    const res = await fetch(`https://j-neon-it-hub-backend-54hj.onrender.com/contact/delete/${id}`, {
       method: "DELETE",
       credentials: "include"
     });

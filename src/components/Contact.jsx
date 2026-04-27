@@ -28,7 +28,7 @@ export default function Contact() {
     setLoading(true);
     setStatus(null);
     try {
-      const response = await fetch('http://localhost:8080/contact/post', {
+      const response = await fetch('https://j-neon-it-hub-backend-54hj.onrender.com/contact/post', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

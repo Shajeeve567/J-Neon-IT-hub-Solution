@@ -18,7 +18,7 @@ import { api } from './api'
  */
 export const fetchAllServices = async () => {
   try {
-    const response = await api.get('http://localhost:8080/api/services/all');
+    const response = await api.get('https://j-neon-it-hub-backend-54hj.onrender.com/api/services/all');
     console.log('Fetched services:', response.data);
     return response.data;
   } catch (error) {
@@ -33,7 +33,7 @@ export const fetchAllServices = async () => {
  */
 export const fetchServiceById = async (id) => {
   try {
-    const response = await api.get(`http://localhost:8080/api/services/${id}`);
+    const response = await api.get(`https://j-neon-it-hub-backend-54hj.onrender.com/api/services/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching service with ID ${id}:`, error);
@@ -47,7 +47,7 @@ export const fetchServiceById = async (id) => {
  */
 export const createService = async (serviceData) => {
   try {
-    const response = await api.post('http://localhost:8080/api/services/add', serviceData);
+    const response = await api.post('https://j-neon-it-hub-backend-54hj.onrender.com/api/services/add', serviceData);
     return response.data;
   } catch (error) {
     console.error('Error creating service:', error);
@@ -61,7 +61,7 @@ export const createService = async (serviceData) => {
  */
 export const updateService = async (id, serviceData) => {
   try {
-    const response = await api.put(`http://localhost:8080/api/services/${id}`, serviceData);
+    const response = await api.put(`https://j-neon-it-hub-backend-54hj.onrender.com/api/services/${id}`, serviceData);
     return response.data;
   } catch (error) {
     console.error(`Error updating service with ID ${id}:`, error);
@@ -74,7 +74,7 @@ export const updateService = async (id, serviceData) => {
  */
 export const deleteService = async (id) => {
   try {
-    const response = await api.delete(`http://localhost:8080/api/services/${id}`);
+    const response = await api.delete(`https://j-neon-it-hub-backend-54hj.onrender.com/api/services/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error deleting service with ID ${id}:`, error);
@@ -85,7 +85,7 @@ export const deleteService = async (id) => {
 
 export const createServicePlan = async (planData) => {
   try {
-    const response = await api.post('http://localhost:8080/api/service/plans', planData);
+    const response = await api.post('https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans', planData);
     return response.data;
   } catch (error) {
     console.error('Error creating service plan:', error);
@@ -110,7 +110,7 @@ export const createServicePlan = async (planData) => {
  */
 export const fetchServicePlans = async (serviceId) => {
   try {
-    const response = await api.get(`http://localhost:8080/api/service/plans/serviceId/${serviceId}`);
+    const response = await api.get(`https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans/serviceId/${serviceId}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching service plans:', error);
@@ -136,7 +136,7 @@ export const fetchPlanById = async (planId) => {
  */
 export const fetchAllPlans = async () => {
   try {
-    const response = await api.get('http://localhost:8080/api/service/plans/all');
+    const response = await api.get('https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans/all');
     return response.data;
   } catch (error) {
     console.error('Error fetching all plans:', error);
@@ -145,7 +145,7 @@ export const fetchAllPlans = async () => {
 };
 export const updateServicePlan = async (planData) => {
   try {
-    const response = await api.put('http://localhost:8080/api/service/plans/id', planData);
+    const response = await api.put('https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans/id', planData);
     return response.data;
   } catch (error) {
     console.error('Error updating service plan:', error);
@@ -159,7 +159,7 @@ export const updateServicePlan = async (planData) => {
 
 export const deleteServicePlan = async (planId) => {
   try {
-    const response = await api.delete(`http://localhost:8080/api/service/plans/${planId}`);
+    const response = await api.delete(`https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans/${planId}`);
     return response.data;
   } catch (error) {
     console.error('Error deleting service plan:', error);

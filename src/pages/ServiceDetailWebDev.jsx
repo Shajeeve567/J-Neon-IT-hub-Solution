@@ -17,7 +17,7 @@ export default function ServiceDetailWebDev() {
                 setLoading(true)
                 
                 // First, fetch all services to find the one with matching slug
-                const servicesResponse = await fetch('http://localhost:8080/api/services/all')
+                const servicesResponse = await fetch('https://j-neon-it-hub-backend-54hj.onrender.com/api/services/all')
                 if (!servicesResponse.ok) throw new Error('Failed to fetch services')
                 const allServices = await servicesResponse.json()
                 
@@ -45,7 +45,7 @@ export default function ServiceDetailWebDev() {
 
                 // Fetch plans for this service
                 if (serviceId) {
-                    const plansResponse = await fetch(`http://localhost:8080/api/service/plans/serviceId/${serviceId}`)
+                    const plansResponse = await fetch(`https://j-neon-it-hub-backend-54hj.onrender.com/api/service/plans/serviceId/${serviceId}`)
                     if (!plansResponse.ok) {
                         console.warn('Failed to fetch plans:', plansResponse.status)
                         setPlans([])

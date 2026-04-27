@@ -15,7 +15,7 @@ export default function AdminUsers() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:8080/admin/users", {
+      const res = await fetch("https://j-neon-it-hub-backend-54hj.onrender.com/admin/users", {
         credentials: "include"
       });
 
@@ -51,7 +51,7 @@ export default function AdminUsers() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/admin/create", {
+      const res = await fetch("https://j-neon-it-hub-backend-54hj.onrender.com/admin/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -80,7 +80,7 @@ export default function AdminUsers() {
     if (!window.confirm("Delete this user?")) return;
 
     try {
-      await fetch(`http://localhost:8080/admin/delete/${id}`, {
+      await fetch(`https://j-neon-it-hub-backend-54hj.onrender.com/admin/delete/${id}`, {
         method: "DELETE",
         credentials: "include"
       });

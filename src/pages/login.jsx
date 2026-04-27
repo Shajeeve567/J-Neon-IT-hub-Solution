@@ -7,7 +7,7 @@ const googleLogo = "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%
 export default function LoginPage() {
 
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:8080/oauth2/authorization/google"
+        window.location.href = "https://j-neon-it-hub-backend-54hj.onrender.com/oauth2/authorization/google"
     }
 
     return (

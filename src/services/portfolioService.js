@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Ensure this matches your backend endpoint
-const API_URL = 'http://localhost:8080/api/portfolio-items';
+const API_URL = 'https://j-neon-it-hub-backend-54hj.onrender.com/api/portfolio-items';
 export const getPortfolioItems = async () => {
     try {
         const response = await axios.get(`${API_URL}/get-all`);
@@ -65,7 +65,7 @@ export const deletePortfolioItem = async (id) => {
 
 // --- Portfolio Images ---
 
-const IMAGE_API_URL = `http://localhost:8080/api/admin/portfolio-items`
+const IMAGE_API_URL = `https://j-neon-it-hub-backend-54hj.onrender.com/api/admin/portfolio-items`
 
 export const getPortfolioImages = async (portfolioItemId) => {
     try {

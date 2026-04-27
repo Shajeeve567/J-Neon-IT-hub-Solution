@@ -1,5 +1,5 @@
 // src/services/analyticsService.js
-const API_BASE_URL = 'http://localhost:8080/api/analytics';
+const API_BASE_URL = 'https://j-neon-it-hub-backend-54hj.onrender.com/api/analytics';
 
 export const fetchOverviewStats = async (startDate, endDate) => {
   try {
@@ -41,7 +41,7 @@ export const fetchTopServices = async (startDate, endDate) => {
     // Fetch actual service names from your database
     // Adjust this endpoint based on your actual service API
     try {
-      const titlesResponse = await fetch('http://localhost:8080/api/services/all', {
+      const titlesResponse = await fetch('https://j-neon-it-hub-backend-54hj.onrender.com/api/services/all', {
         credentials: 'include'
       });
       
@@ -111,7 +111,7 @@ export const fetchTrafficSources = async (startDate, endDate) => {
 
 export const fetchInquiryCount = async (startDate, endDate) => {
   try {
-    const response = await fetch('http://localhost:8080/contact/get-all', {
+    const response = await fetch('https://j-neon-it-hub-backend-54hj.onrender.com/contact/get-all', {
       credentials: 'include'
     });
     if (!response.ok) throw new Error('Failed to fetch inquiries');
