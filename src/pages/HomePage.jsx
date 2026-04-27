@@ -6,6 +6,7 @@ import Services from '../components/Services'
 import Portfolio from '../components/Portfolio'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import Chatbot from '../components/Chatbot'
 
 function useScrollFadeIn() {
     useEffect(() => {
@@ -39,6 +40,7 @@ export default function HomePage() {
                 {/* <Contact /> */}
             </main>
             <Footer />
+            <Chatbot />
         </>
     )
 }

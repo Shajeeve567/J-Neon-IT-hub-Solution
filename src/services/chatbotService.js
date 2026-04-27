@@ -26,5 +26,14 @@ export const chatbotService = {
   deleteDocument: async (file_id) => {
     const response = await chatbotApi.post('/delete-doc', { file_id });
     return response.data;
+  },
+  chat: async (question, session_id = null) => {
+    // Determine the payload
+    const payload = { question };
+    if (session_id) {
+      payload.session_id = session_id;
+    }
+    const response = await chatbotApi.post('/chat', payload);
+    return response.data;
   }
 };
